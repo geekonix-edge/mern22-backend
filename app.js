@@ -1,26 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.json({
-        success: true,
-        message: 'Hello from the / route!'
-    })
-})
-
-app.get('/curbrain', (req, res) => {
-    res.json({
-        success: true,
-        message: 'Hello from the /curbrain route!'
-    })
-})
-
-app.get('/geekonix', (req, res) => {
-    res.json({
-        success: true,
-        message: 'Hello from the /geekonix route!'
-    })
-})
+const routes = require('./routes/index');
+app.use('/', routes);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server is running!')
